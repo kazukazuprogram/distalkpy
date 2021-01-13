@@ -14,6 +14,8 @@ try:
 except ImportError:
     from voiceroid2api import VOICEROID2
 
+client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -95,7 +97,6 @@ def main():
     CONFIG_PATH = join(environ["HOMEDRIVE"], environ["HOMEPATH"], "distalkpy.json")
     CONFIG = loads(CONFIG_PATH)
     v2 = VOICEROID2()
-    client = discord.Client()
     readChannelIds = list()
     vc = None
     if not isdir(CONFIG["cache"]):
